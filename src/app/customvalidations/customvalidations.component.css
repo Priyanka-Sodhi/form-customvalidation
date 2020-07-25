@@ -1,0 +1,10 @@
+.myclass{
+  background-color:lightblue;
+  padding-top:50px;
+  margin-top:50px;
+}
+
+label{
+  text-align: center;
+  /* margin-left:15px; */
+}
