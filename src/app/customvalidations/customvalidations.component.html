@@ -3,7 +3,10 @@
     <div class="form-group row">
     <label class="col-sm-4">Enter Full Name</label>
     <div class="col-sm-7">
-    <input type='text' class="form-control" [class.is-invalid]="username.touched && username.invalid " formControlName="username"/>
+    <input type='text' class="form-control" [class.is-invalid]="name.touched && name.invalid " formControlName="name"/>
+     <small *ngIf="name.errors?.required">name is required</small>
+     <small *ngIf="name.errors?.minlength && !name.errors?.namePattern">name must contain atleast 3 letters</small>
+     <small *ngIf="!name.errors?.required && name.errors?.namePattern">name must contain only alphabets</small>
     <br>
     </div>
     </div>
@@ -11,7 +14,10 @@
     <div class="form-group row"> 
     <label class="col-sm-4">Enter Mobile Number</label>
     <div class="col-sm-7">
-    <input type='tel' class="form-control" [class.is-invalid]="username.touched && username.invalid " formControlName="username"/>
+    <input type='tel' class="form-control" [class.is-invalid]="phone.touched && phone.invalid " formControlName="phone"/>
+    <small *ngIf="phone.errors?.required">phone is required</small>
+    <small *ngIf="!phone.errors?.required && phone.errors?.phonePattern">please enter a valid phone number</small>
+    <small *ngIf="!phone.errors?.phonePattern && !phone.errors?.required && phone.errors?.minlength || phone.errors?.maxlength">there are usually 10 digit phone numbers</small>
     <br>
     </div>
     </div>
@@ -19,7 +25,9 @@
     <div class="form-group row">
     <label class="col-sm-4">Enter Email ID</label>
     <div class="col-sm-7">
-    <input type='email' class="form-control" [class.is-invalid]="username.touched && username.invalid " formControlName="username"/>
+    <input type='email' class="form-control" [class.is-invalid]="email.touched && email.invalid " formControlName="email"/>
+    <small *ngIf="email.errors?.required">email is required</small>
+    <small *ngIf="email.errors?.email">please enter a valid email</small>
     <br>
     </div>
     </div>
@@ -27,7 +35,9 @@
     <div class="form-group row">
     <label class="col-sm-4">Create Password</label>
     <div class="col-sm-7">
-    <input type='password' class="form-control" [class.is-invalid]="username.touched && username.invalid " formControlName="username"/>
+    <input type='password' class="form-control" [class.is-invalid]="password.touched && password.invalid " formControlName="password"/>
+    <small *ngIf="password.errors?.required">password is required</small>
+    <small *ngIf="password.errors?.minlength">password must contain atleast 6 letters</small>
     <br>
     </div>
     </div>
@@ -35,7 +45,9 @@
     <div class="form-group row">
     <label class="col-sm-4">Confirm Password</label>
     <div class="col-sm-7">
-    <input type='password' class="form-control" [class.is-invalid]="username.touched && username.invalid " formControlName="username"/>
+    <input type='password' class="form-control" [class.is-invalid]="password.touched && password.invalid " formControlName="password"/>
+    <small *ngIf="password.errors?.required">password is required</small>
+    <small *ngIf="password.errors?.minlength">password must contain atleast 6 letters</small>
     <br>
     </div>
     </div>
@@ -43,7 +55,9 @@
     <div class="form-group row">
     <label class="col-sm-4">Enter PAN Card Number</label>
     <div class="col-sm-7">
-    <input type='text' class="form-control" [class.is-invalid]="username.touched && username.invalid " formControlName="username"/>
+    <input type='text' class="form-control" [class.is-invalid]="pan.touched && pan.invalid " formControlName="pan"/>
+    <small *ngIf="pan.errors?.required">pan is required</small>
+    <small *ngIf="!pan.errors?.required && pan.errors?.panPattern">please enter a valid pan</small>
     <br>
     </div>
     </div>
